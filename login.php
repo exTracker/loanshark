@@ -1,6 +1,10 @@
 <?php
 
 $configs = include('config.inc.php');
+#if (!isset($_SESSION['userId'])) {
+#    header("Location: index.php");
+#}
+
 session_start();
 ?>
 <html>
@@ -25,11 +29,9 @@ session_start();
 
     <form id="login_form" action="handlers/login_handler.php" method="post">
         <div class="form-group">
-            <label for="key" class="sr-only">Email</label>
             <input type="email" name="email" id="email" class="form-control" placeholder="Email">
         </div>
         <div class="form-group">
-            <label for="key" class="sr-only">Password</label>
             <input type="password" name="password" id="password" class="form-control"
                    placeholder="Password">
         </div>
